@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('admin.dashboard');
+});
+
+Route::get('/home', function () {
+    return redirect()->route('admin.dashboard');
+});
+
+Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () {
+    Route::get('/', function(){ return redirect()->route('admin.dashboard'); });
+    Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard'); // admin.dashboard
 });
