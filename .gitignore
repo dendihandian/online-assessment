@@ -12,3 +12,13 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+
+# ignored for main branch
+public/fonts
+public/images
+public/js/sbadmin
+public/mix-manifest.json
+public/css/admin.css
+public/css/app.css
+public/js/admin.js
+public/js/app.js
